@@ -1,14 +1,35 @@
-const express = require ('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+var logger = require ("morgan");
 
-app.get('/',(req, res) => {
-    res.send()
+const books = require ("./server/data/books.json")
+
+
+//MidelWares
+app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+app.use(logger("dev"));
+
+
+//Cors config
+app.use((req, res, next)=>{
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers","Content-Type");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  next();
 })
 
-module.export = app
+//Endpoints
+
+const routes = require ("./server/routes/index")
+app.use("/", routes);
 
 
-app.listen (port, ()=>{
-    console.log('Example app listening on port $(port)')
-})
+
+
+
+module.exports = app
+
+
+
+

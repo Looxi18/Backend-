@@ -1,0 +1,46 @@
+[
+{
+    "id":1,
+    "title":"Chainsaw Man Vol.1",
+    "description":"Manga escrito por Tatsuki Fujimoto",
+    "code":"01",
+    "price":10,
+    "status":true,
+    "stock":100,
+    "category":"Accion/Visceral",
+    "thumbnails":["https://www.libreriavila.com.uy/images/thumbs/0067481_chainsaw-man-vol-1-tatsuki-fujimoto-ivrea_750.png"]
+},
+{
+    "id":2,
+    "title":"Jujutsu Kaisen Vol.0",
+    "description":"Manga escrito por Gege Akutami",
+    "code":"02",
+    "price":15,
+    "status":true,
+    "stock":105,
+    "category":"Accion/Visceral",
+    "thumbnails":["https://images.cdn2.buscalibre.com/fit-in/360x360/f1/57/f15740dc20d8bec7ab53892795b3fdef.jpg"]
+},
+{
+    "id":3,
+    "title":"Monster Vol.1",
+    "description":"Manga escrito por Naomi Urasawa",
+    "code":"03",
+    "price":20,
+    "status":true,
+    "stock":80,
+    "category":"Suspenso",
+    "thumbnails": ["https://www.libreriavila.com.uy/images/thumbs/0066950_monster-vol-1-edicion-kanzenban-naoki-urasawa-ivrea_750.jpeg"]
+},
+{
+    "id":4,
+    "title":"Tokyo Ghoul Vol.9",
+    "description":"Manga escrito por Sui Ushida",
+    "code":"99",
+    "price":13,
+    "status":true,
+    "stock":200,
+    "category":"Drama/Romance/Accion/Horror",
+    "thumbnails": ["https://www.libreriavila.com.uy/images/thumbs/0005342_tokyo-ghoul-vol-9-sui-ishida-ivrea_750.jpeg"]
+}
+]
