@@ -1,33 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { getBooks } = require("../controllers/book.controllers")
+const { getBooks, getBooksById, deleteBooks, NewBook, updateBook } = require("../controllers/book.controllers");
 
 router.get("/", getBooks);
 
+router.get ("/:id", getBooksById)
 
-router.get("/:id", (req, res) => {
-    try {
-        const { id } = req.params;
+router.delete ("/:id", deleteBooks)
 
-        const parseId = parseInt(id);
-        if(isNaN(parseId)){
-            return res.status(400).send("ID no valido")
-        }
+router.post ("/", NewBook)
 
+router.put ("/:id",  updateBook)
 
-        const book = books.find((book) => book.id === parseInt(id));
-        if (book) {
-            res.status(200).json(book);
-  
-        } else {
-            res.status(404).send("Libro no encontrado");
-  
-        }
-    } catch (error) {
-        console.error("error al obtener el libro:", error);
-        res.status(500).send("Error interno del servidor")
-    }
-  })
   
 
 module.exports = router;

@@ -1,0 +1,41 @@
+<h1>Vista productos</h1>
+{{#if empty}}
+<h2>Lista de productos vacía</h2>
+{{else}}
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Foto</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each books}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.price}}</td>
+            <td><img src={{this.thumbnails}}></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
+<h1>Agregar un producto</h1>
+    <form id="form2" action="/api/books" method="post" target="">
+        <div>
+            <label for="title">Enter product: </label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="price">Enter price: </label>
+            <input type="number" name="price" id="price" required>
+        </div>
+        <div>
+            <label for="thumbnails">Enter thumbnail url: </label>
+            <input type="text" name="thumbnails" id="thumbnails" required>
+        </div>
+        <div >
+            <input type="submit" value="Guardar">
+        </div>
+    </form>

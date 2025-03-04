@@ -1,0 +1,19 @@
+<h1>Agregar un producto</h1>
+    <form action="/api/books" method="post" target="">
+        <div>
+            <label for="title">Enter product: </label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="price">Enter price: </label>
+            <input type="number" name="price" id="price" required>
+        </div>
+        <div>
+            <label for="thumbnails">Enter thumbnail url: </label>
+            <input type="text" name="thumbnails" id="thumbnails" required>
+        </div>
+        <div >
+            <input type="submit" value="Guardar">
+        </div>
+    </form>
+    <a href="/home"><button>Ver productos</button></a>

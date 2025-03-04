@@ -1,0 +1,71 @@
+
+<h1>Vista productos</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Foto</td>
+        </tr>
+    </thead>
+    <tbody id="books-render">
+    </tbody>
+</table>
+
+<h1>Agregar un producto</h1>
+    <form id="form" action="" method="post" target="">
+        <div>
+            <label for="title">Enter product: </label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="price">Enter price: </label>
+            <input type="number" name="price" id="price" required>
+        </div>
+        <div>
+            <label for="thumbnails">Enter thumbnail url: </label>
+            <input type="text" name="thumbnails" id="thumbnails" required>
+        </div>
+        <div >
+            <input type="submit" value="Guardar">
+        </div>
+    </form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on("books", (books)=>{
+    const tbody = document.getElementById("books-render")
+    tbody.innerHTML = ``
+    books.forEach(book => {
+        const row = tbody.insertRow()
+            row.innerHTML = `
+            <tr>
+                    <td>${book.title}</td>
+                    <td>${book.price}</td>
+                    <td><img src=${book.thumbnails}></td>
+                </tr>
+            `
+    })
+  })
+  const form = document.getElementById("form")
+
+  form.addEventListener("submit", function(event){
+    event.preventDefault()
+
+    const title = document.getElementById("title").value
+    const price = document.getElementById("price").value
+    const thumbnails = document.getElementById("thumbnails").value
+
+    const book = {
+        title: title,
+        price: price,
+        thumbnail: thumbnails
+    }
+    console.log(book)
+    socket.emit("addBook", book)
+    form.reset()
+  })
+</script>
+
