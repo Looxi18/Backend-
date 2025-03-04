@@ -1,5 +1,5 @@
 const app = require("./app")
-const PORT = 8081;
+const PORT = 8080;
 const express = require ("express")
 const { createServer } = require('node:http');
 const displayRoutes = require("express-routemap");
@@ -26,7 +26,14 @@ io.on('connection', (socket) => {
     io.emit("books", books)
     socket.on("addBook", book => {
     addBooks(book)
+    io.emit("books", getAllBooks());
     })
+
+
+    socket.on("deleteBook", (bookId) => {
+        deleteBook(bookId); 
+        io.emit("books", getAllBooks());
+    });
     
   });
 

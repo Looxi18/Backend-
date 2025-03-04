@@ -1,1 +1,41 @@
-[{"id":2,"title":"Jujutsu Kaisen Vol.0","description":"Manga escrito por Gege Akutami","code":"02","price":15,"status":true,"stock":105,"category":"Accion/Visceral","thumbnails":["https://images.cdn2.buscalibre.com/fit-in/360x360/f1/57/f15740dc20d8bec7ab53892795b3fdef.jpg"]},{"id":3,"title":"Monster Vol.1","description":"Manga escrito por Naomi Urasawa","code":"03","price":20,"status":true,"stock":80,"category":"Suspenso","thumbnails":["https://www.libreriavila.com.uy/images/thumbs/0066950_monster-vol-1-edicion-kanzenban-naoki-urasawa-ivrea_750.jpeg"]},{"id":4,"title":"Tokyo Ghoul Vol.9","description":"Manga escrito por Sui Ushida","code":"99","price":13,"status":true,"stock":200,"category":"Drama/Romance/Accion/Horror","thumbnails":["https://www.libreriavila.com.uy/images/thumbs/0005342_tokyo-ghoul-vol-9-sui-ishida-ivrea_750.jpeg"]},{"id":5,"title":"Cdgsdgsdgsdgsdgds","description":"Manga escrito por Naomi Urasawa","code":"03","price":20,"status":true,"stock":80,"category":"Suspenso","thumbnails":["https://www.libreriavila.com.uy/images/thumbs/0066950_monster-vol-1-edicion-kanzenban-naoki-urasawa-ivrea_750.jpeg"]},{"id":1,"title":"Cdgsdgsdgsdgsdgds","description":"Manga escrito por Naomi Urasawa","code":"03","price":20,"status":true,"stock":80,"category":"Suspenso","thumbnails":["https://www.libreriavila.com.uy/images/thumbs/0066950_monster-vol-1-edicion-kanzenban-naoki-urasawa-ivrea_750.jpeg"]},{"id":2,"title":"BURGUERTIME 2","price":"888888","thumbnail":"no hay"},{"id":3,"title":"asdasdas","price":"234234","thumbnail":"23423"},{"id":4,"title":"asdasd","price":"12321","thumbnail":"no hay"},{"id":5,"title":"asd","price":"123","thumbnail":"asd"},{"id":6,"title":"nashe","price":"12345","thumbnails":"no hay"},{"id":7,"title":"nashe","price":"12345","thumbnails":"no hay"},{"id":8,"title":"nashe","price":"12345","thumbnails":"no hay"},{"id":9,"title":"NASHI","price":"456","thumbnails":"no hay"},{"id":10,"title":"asdaaaaa","price":"2342","thumbnails":"no hay"},{"id":11,"title":"oktrhmokrtyn","price":"2342","thumbnails":"no hay"},{"id":12,"title":"ayayayay","price":"66666","thumbnails":"no hay"},{"id":13,"title":"aaaaaaaaaaa","price":"32535","thumbnails":"no hay"}]
+[
+    {
+        "id": 2,
+        "title": "Jujutsu Kaisen Vol.0",
+        "description": "Manga escrito por Gege Akutami",
+        "code": "02",
+        "price": 15,
+        "status": true,
+        "stock": 105,
+        "category": "Accion/Visceral",
+        "thumbnails": [
+            "https://images.cdn2.buscalibre.com/fit-in/360x360/f1/57/f15740dc20d8bec7ab53892795b3fdef.jpg"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Monster Vol.1",
+        "description": "Manga escrito por Naomi Urasawa",
+        "code": "03",
+        "price": 20,
+        "status": true,
+        "stock": 80,
+        "category": "Suspenso",
+        "thumbnails": [
+            "https://www.libreriavila.com.uy/images/thumbs/0066950_monster-vol-1-edicion-kanzenban-naoki-urasawa-ivrea_750.jpeg"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Tokyo Ghoul Vol.9",
+        "description": "Manga escrito por Sui Ushida",
+        "code": "99",
+        "price": 13,
+        "status": true,
+        "stock": 200,
+        "category": "Drama/Romance/Accion/Horror",
+        "thumbnails": [
+            "https://www.libreriavila.com.uy/images/thumbs/0005342_tokyo-ghoul-vol-9-sui-ishida-ivrea_750.jpeg"
+        ]
+    }
+]
