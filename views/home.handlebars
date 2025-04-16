@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Bienvenido a tu tienda de Mangas</h1>
+    <p>Esta es la vista de inicio.</p>
+
+    <div style="margin-bottom: 20px;">
+        <a href="/cart"
+            style="padding: 10px 20px; background-color: black; color: white; text-decoration: none; border-radius: 5px;">
+            🛒 Ver Carrito
+        </a>
+    </div>
+
+    <div>
+        {{#each products}}
+        <div>
+            <h3>{{this.name}}</h3>
+            <img src="{{this.image}}" alt="{{this.name}}" width="200" />
+            <p>{{this.description}}</p>
+            <p> Categoria: {{this.category}} </p>
+            <p>Precio: ${{this.price}}</p>
+            </p>
+            <p>Stock disponible: {{this.stock}}</p>
+            <a href="/cart/add/{{this._id}}">Agregar al carrito</a>
+        </div>
+        {{/each}}
+    </div>
+</body>
+ 
+</html>

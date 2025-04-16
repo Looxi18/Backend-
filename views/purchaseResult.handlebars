@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resultado de la Compra</title>
+</head>
+<body>
+  {{#if success}}
+    <h1>¡Compra realizada con éxito!</h1>
+    <p>Total pagado: ${{total}}</p>
+    <a href="/">Volver a la tienda</a>
+  {{else}}
+    <h1>No se pudo completar la compra</h1>
+    <p>Los siguientes productos están sin stock:</p>
+    <ul>
+      {{#each outOfStock}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+    <a href="/cart">Volver al carrito</a>
+  {{/if}}
+</body>
+</html>

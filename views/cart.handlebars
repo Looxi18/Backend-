@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito</title>
+</head>
+<body>
+  <h1>Tu carrito</h1>
+
+  {{#if cart.products.length}}
+    <ul>
+      {{#each cart.products}}
+        <li style="margin-bottom: 30px;">
+          <h3>{{this.product.title}}</h3>
+          <p>{{this.product.description}}</p>
+          <p>Precio unitario: ${{this.product.price}}</p>
+          <p>Cantidad actual: {{this.quantity}}</p>
+
+          <form action="/cart/add-more/{{this.product._id}}" method="POST">
+            <input type="number" name="quantity" value="{{this.quantity}}" min="1" max="{{this.product.stock}}">
+            <button type="submit">Actualizar cantidad</button>
+          </form>
+
+          <p>Subtotal: ${{multiply this.product.price this.quantity}}</p>
+
+          <img src="{{this.product.image}}" alt="{{this.product.title}}" width="150">
+
+          <form action="/cart/remove/{{this.product._id}}" method="POST">
+            <button type="submit">Eliminar del carrito</button>
+          </form>
+        </li>
+      {{/each}}
+    </ul>
+
+    <h2>Total: ${{total}}</h2>
+
+    <form action="/cart/{{cart._id}}/purchase" method="POST">
+      <button type="submit">Finalizar compra</button>
+    </form>
+
+  {{else}}
+    <p>El carrito está vacío.</p>
+  {{/if}}
+
+  <a href="/">Volver a la tienda</a>
+</body>
+</html>

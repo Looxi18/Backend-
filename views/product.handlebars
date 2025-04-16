@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda</title>
+</head>
+<body>
+  <h1>Productos disponibles</h1>
+
+  {{#each products}}
+    <div>
+      <h3>{{this.name}}</h3>
+      <p>{{this.description}}</p>
+      <p>Precio: ${{this.price}}</p>
+      <p>Stock: {{this.stock}}</p>
+      <img src="{{this.image}}" alt="{{this.name}}" width="150">
+      <form action="/cart/add/{{this._id}}" method="POST">
+        <input type="number" name="quantity" value="1" min="1" max="{{this.stock}}">
+        <button type="submit">Agregar al carrito</button>
+      </form>
+    </div>
+  {{/each}}
+
+  <a href="/cart">Ir al carrito</a>
+</body>
+</html>
