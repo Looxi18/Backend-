@@ -4,9 +4,9 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import handlebars from 'express-handlebars';
-import productsRouter from './routes/products.routes.js';
-import cartsRouter from './routes/carts.routes.js';
 import viewsRouter from './routes/views.routes.js';
+import productsApiRouter from './routes/api/products.api.routes.js';
+import cartsApiRouter from './routes/api/carts.api.routes.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,8 +37,8 @@ app.set('views', 'views');
 
 
 // Routes
-app.use('/api/products', productsRouter);
-app.use('/api/carts', cartsRouter);
+app.use('/api/products', productsApiRouter);
+app.use('/api/carts', cartsApiRouter);
 app.use('/', viewsRouter);
 
 

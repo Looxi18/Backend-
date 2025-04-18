@@ -1,7 +1,8 @@
 import express from 'express';
 import Product from '../models/product.model.js';  // Modelo de productos
 import Cart from '../models/cart.model.js';  // Modelo de carrito
-import { finalizePurchase } from './carts.routes.js';
+import { finalizePurchase } from '../controllers/carts.controller.js';
+
 
 const router = express.Router();
 
