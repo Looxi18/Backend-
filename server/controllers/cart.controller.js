@@ -16,7 +16,7 @@ const newCart = (req, res) => {
         res.status(500).send("Error interno del servidor")
     }
 }
-
+//hola
 const deleteCartById = (req, res) => {
     try {
         const id = parseInt(req.params.id)
