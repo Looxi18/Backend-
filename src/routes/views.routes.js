@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-const DEFAULT_CART_ID = '67edfff2a02f0a770ef66db6';
+const DEFAULT_CART_ID = '684dabcc3d33e3d5cfa1cf9d';
 
 
 router.get('/cart/add/:pid', async (req, res) => {

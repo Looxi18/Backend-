@@ -41,6 +41,17 @@ app.use('/api/products', productsApiRouter);
 app.use('/api/carts', cartsApiRouter);
 app.use('/', viewsRouter);
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Sirve archivos estáticos desde ../public
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+
+
 
 // MongoDB Connection
 mongoose.connect(MONGO_URI).then(()=>{
