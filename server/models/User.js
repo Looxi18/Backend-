@@ -1,45 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
-const usersPath = path.join(__dirname, '../data/users.json');
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
+});
 
-let users = [];
-if (fs.existsSync(usersPath)) {
-  users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
-}
+// Encriptar antes de guardar
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
 
-const getUsers = () => users;
-
-const saveUsers = () => {
-  fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+// Método para comparar contraseñas
+userSchema.methods.comparePassword = function (candidatePassword) {
+  return bcrypt.compare(candidatePassword, this.password);
 };
 
-const createUser = (userData) => {
-  const existingUser = users.find(u => u.email === userData.email);
-  if (existingUser) throw new Error('Email ya registrado');
+module.exports = mongoose.model('User', userSchema);
 
-  const hashedPassword = bcrypt.hashSync(userData.password, 10);
-  const newUser = {
-    id: users.length ? users[users.length - 1].id + 1 : 1,
-    ...userData,
-    password: hashedPassword,
-    role: userData.role || 'user',
-    cart: null
-  };
-
-  users.push(newUser);
-  saveUsers();
-  return newUser;
-};
-
-const findUserByEmail = (email) => users.find(user => user.email === email);
-
-const findUserById = (id) => users.find(user => user.id === id);
-
-module.exports = {
-  getUsers,
-  createUser,
-  findUserByEmail,
-  findUserById
-};
