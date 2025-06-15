@@ -1,16 +1,38 @@
 import express from 'express';
-import Product from '../models/product.model.js';  // Modelo de productos
-import Cart from '../models/cart.model.js';  // Modelo de carrito
+import Product from '../models/product.model.js'; 
+import Cart from '../models/cart.model.js';
 import { finalizePurchase } from '../controllers/carts.controller.js';
 
 
 const router = express.Router();
 
+// Login
+router.get('/login', (req, res) => {
+  res.render('login', { title: 'Iniciar sesión' });
+});
+
+// Registro
+router.get('/register', (req, res) => {
+  res.render('register', { title: 'Registro' });
+});
+
+// Formulario para restablecer contraseña con token
+router.get('/auth/reset-password/:token', (req, res) => {
+  const { token } = req.params;
+  res.render('resetPasswordForm', { title: 'Nueva contraseña', token });
+});
+
+
+// Solicitud de recuperación de contraseña
+router.get('/auth/reset-password', (req, res) => {
+  res.render('resetPasswordRequest', { title: 'Recuperar contraseña' });
+});
+
 // Ruta para la página principal (mostrar productos)
 router.get('/', async (req, res) => {
   try {
     const products = await Product.find().lean();
-    res.render('home', { products });  // Renderizar la vista 'home' con los productos
+    res.render('home', { products }); 
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener productos', error });
   }
@@ -55,7 +77,7 @@ router.get('/cart/add/:pid', async (req, res) => {
 
 router.get('/cart', async (req, res) => {
   try {
-    const cart = await Cart.findOne({}).populate('products.product');  // Obtener carrito con productos poblados
+    const cart = await Cart.findOne({}).populate('products.product'); 
     if (!cart) {
       return res.status(404).json({ message: 'Carrito no encontrado' });
     }
@@ -141,7 +163,7 @@ router.post('/cart/remove/:pid', async (req, res) => {
     // Guardar los cambios en el carrito
     await cart.save();
 
-    res.redirect('/cart'); // Redirigir al carrito actualizado
+    res.redirect('/cart'); //Redirigir al carrito actualizado
   } catch (error) {
     console.error('Error al eliminar el producto:', error);
     res.status(500).json({ message: 'Error al eliminar el producto del carrito', error: error.message });
@@ -160,7 +182,15 @@ router.get('/products', async (req, res) => {
 });
 
 
+// Vista resultado compra
+router.get('/purchase/result', (req, res) => {
 
+  res.render('purchaseResult', {
+    success: true,
+    total: 1000,
+    outOfStock: []
+  });
+});
 
 
 export default router;
